@@ -39,7 +39,7 @@ T max(T a, T b)
         if (a < b)
                 return (b);
         else
-                return b;
+	    return (b);
 }
 
 template<typename T>
