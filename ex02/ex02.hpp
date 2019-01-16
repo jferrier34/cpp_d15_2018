@@ -11,45 +11,46 @@
 #include <iostream>
 #include <string>
 
-
 template <typename T>
 T const &min(T const &a, T const &b)
 {
-        std::cout << "template min" << std::endl;
-        if (b < a)
-                return b;
-        return a;
+    std::cout << "template min" << std::endl;
+    if (a <= b)
+	return a;
+    return b;
 }
 
-int const &min(int const &a, int const &b)
+int min(int a, int b)
 {
-        std::cout << "non-template min" << std::endl;
-        if (b < a)
-                return b;
-        return a;
+    std::cout << "non-template min" << std::endl;
+    if (a <= b)
+	return a;
+    return b;
 }
 
 template<typename T>
-T templateMin(T const *tab, int const size)
+const T templateMin(T const *tab, int const size)
 {
-        int i = 1;
-        T vmin;
-        vmin = tab[0];
-        for (; i < size; i++)
-                if (tab[i] < vmin)
-                vmin = tab[i];
-        return vmin;
+    int i = 1;
+    T vmin;
+    vmin = tab[0];
+    for (; i < size; i++) {
+	if (tab[i] < vmin)
+	    vmin = min<T>(tab[i], vmin);
+    }
+    return vmin;
 }
 
-int nonTemplateMin(int const *tab, int const size)
+int nonTemplateMin(int *tab, int size)
 {
-         int i = 1;
-        int vmin;
-        vmin = tab[0];
-        for (; i < size; i++)
-                if (tab[i] < vmin)
-                vmin = tab[i];
-        return vmin;
+    int i = 1;
+    int vmin;
+    vmin = tab[0];
+    for (; i < size; i++) {
+	if (tab[i] < vmin)
+	    vmin = min(tab[i], vmin);
+    }
+    return vmin;
 }
 
 #endif
