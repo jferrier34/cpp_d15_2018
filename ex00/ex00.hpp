@@ -14,14 +14,14 @@
 template<typename T>
 void swap(T &a, T &b)
 {
-        int tmp;
+        T tmp;
         tmp = a;
         a = b;
         b = tmp;
 }
 
 template<typename T>
-T min(T &a, T &b)
+T min(T a, T b)
 {
         if (a < b)
                 return a;
@@ -32,7 +32,7 @@ T min(T &a, T &b)
 }
 
 template<typename T>
-T max(T &a, T &b)
+T max(T a, T b)
 {
         if (a > b)
                 return (a);
@@ -43,11 +43,11 @@ T max(T &a, T &b)
 }
 
 template<typename T>
-T add(T &a, T &b)
+T add(T a, T b)
 {
-        int result;
+        T result;
         result = a + b;
         return result;
-}
+	}
 
 #endif
