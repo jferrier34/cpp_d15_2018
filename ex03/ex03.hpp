@@ -10,20 +10,21 @@
 
 #include <iostream>
 
-	template<typename T>
-	void foreach(const T* tab, void (func)(const T&), int size)
-	{
-		int i = 0;
-		while(i < size) {
-			func(tab[i]);
-			i++;
-		}
+template<typename T>
+void foreach(const T* tab, void (func)(const T&), int size)
+{
+	int i = 0;
+
+	while(i < size) {
+		func(tab[i]);
+		i++;
+	}
 }
 
-	template<typename T>
-	void print(const T& prt)
+template<typename T>
+void print(const T& elem)
 	{
-		std::cout << prt << std::endl;
+		std::cout << elem << std::endl;
 	}
 
 #endif
