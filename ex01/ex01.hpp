@@ -16,7 +16,7 @@
 template <typename T>
 int compare(const T &a, const T &b)
 {
-        if (a = b)
+        if (a == b)
                 return (0);
         else if (a < b)
                 return (-1);
