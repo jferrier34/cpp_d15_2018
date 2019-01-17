@@ -40,3 +40,4 @@ bool Tester<int>::equal(const int &a, const int &b)
 		return (true);
 	return (false);
 }
+
