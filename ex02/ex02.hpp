@@ -16,41 +16,41 @@ T const &min(T const &a, T const &b)
 {
     std::cout << "template min" << std::endl;
     if (a <= b)
-	return a;
-    return b;
+	    return (a);
+    return (b);
 }
 
 int min(int a, int b)
 {
     std::cout << "non-template min" << std::endl;
     if (a <= b)
-	return a;
-    return b;
+	    return (a);
+    return (b);
 }
 
 template<typename T>
-const T templateMin(T const *tab, int const size)
+const T &templateMin(T const *tab, int size)
 {
     int i = 1;
-    T vmin;
-    vmin = tab[0];
-    for (; i < size; i++) {
-	if (tab[i] < vmin)
+    T &vmin = const_cast<T&>(tab[0]);
+    while (i < size) {
 	    vmin = min<T>(tab[i], vmin);
+        i++;
     }
-    return vmin;
+    return (vmin);
 }
 
-int nonTemplateMin(int *tab, int size)
+int nonTemplateMin(const int *tab, int size)
 {
     int i = 1;
     int vmin;
     vmin = tab[0];
-    for (; i < size; i++) {
-	if (tab[i] < vmin)
+    
+	while (i < size) {
 	    vmin = min(tab[i], vmin);
+        i++;
     }
-    return vmin;
+    return (vmin);
 }
 
 #endif
